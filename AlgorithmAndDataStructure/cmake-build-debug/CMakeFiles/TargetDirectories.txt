@@ -1,0 +1,3 @@
+C:/Users/Matin/ikt203/AlgorithmAndDataStructure/cmake-build-debug/CMakeFiles/AlgorithmAndDataStructure.dir
+C:/Users/Matin/ikt203/AlgorithmAndDataStructure/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/Matin/ikt203/AlgorithmAndDataStructure/cmake-build-debug/CMakeFiles/rebuild_cache.dir
