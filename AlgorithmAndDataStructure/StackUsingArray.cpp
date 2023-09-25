@@ -15,7 +15,7 @@ public:
         length = n;
         array = new int[n];
     };
-    void addRlement(int data)
+    void push(int data)
     {
         if(IsFull())        //check if the stack is full
         {
@@ -28,7 +28,7 @@ public:
         };
     };
 
-    int removeElement()
+    int pop()
     {
         int data;        //a placeholder for the element we want to remove
 
@@ -84,30 +84,30 @@ public:
 int main()
 {
     Stack s(4);
-    s.addRlement(1);
-    s.addRlement(2);
-    s.addRlement(3);
-    s.addRlement(4);
-    s.addRlement(44);
+    s.push(1);
+    s.push(2);
+    s.push(3);
+    s.push(4);
+    s.push(44);
     s.Display();
-    s.removeElement();
+    s.pop();
     cout<<endl;
     s.Display();
 
-    s.removeElement();
+    s.pop();
     cout<<endl;
     s.Display();
 
-    s.removeElement();
+    s.pop();
     cout<<endl;
     s.Display();
 
-    s.removeElement();
+    s.pop();
     cout<<endl;
     s.Display();
 
 
-    s.removeElement();
+    s.pop();
     cout<<endl;
     s.Display();
 
