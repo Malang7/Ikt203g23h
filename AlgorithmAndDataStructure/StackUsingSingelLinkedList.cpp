@@ -11,7 +11,7 @@ struct Node
 class Stack
 {
 private:
-    Node *top;
+    Node *top;  //declare a pointer which it will point to first node in the singel linked list
 
 public:
     Stack()
@@ -19,7 +19,7 @@ public:
         top = nullptr;
     }
 
-    bool IsEmpty()
+    bool IsEmpty()   //check if the stack is empty
     {
         if(top == nullptr)
         {
@@ -28,36 +28,36 @@ public:
         return false;
     }
 
-    void push(int data)
+    void push(int data)                 //push data into the stack
     {
-        Node *node = new Node;
-        node-> data = data;
+        Node *node = new Node;          //allocate memory for the node
+        node-> data = data;         //assigning data into the linked list
 
-        if(IsEmpty())
+        if(IsEmpty())           //check if the stack is empty
         {
-            node->next = nullptr;
-            top = node;
+            node->next = nullptr;       //update the pointer of the node
+            top = node;             //assigning the address of the node into the top pointer
         }
         else
         {
-            node->next = top;
-            top = node;
+            node->next = top;    //update the pointer of the node, which it will point to the front node
+            top = node;          //update the top, with assigning the  node to the top
         }
     }
 
-    int  pop()
+    int  pop()   //removing data from the stack
     {
-        Node *remove = top;
+        Node *remove = top;             //create a node which it will point top
         int data;
-        if(IsEmpty())
+        if(IsEmpty())       //check if the stack is empty
         {
-            throw runtime_error("Stack underflow");  // Or another suitable exception
+            throw runtime_error("Stack underflow");  //Or another suitable exception
         }
-        else if(top->next == nullptr)
+        else if(top->next == nullptr)    //if there is just one node
         {
             data = remove->data;
-            top = nullptr;
-            delete remove;
+            top = nullptr;              //update the top
+            delete remove;                  //removing the data and node from the stack
             return data;
         }
         else
