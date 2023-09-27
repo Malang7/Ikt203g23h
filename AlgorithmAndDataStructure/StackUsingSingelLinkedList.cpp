@@ -28,7 +28,7 @@ public:
         return false;
     }
 
-    void push(int data)                 //push data into the stack
+    void push(int data)                 //pushData data into the stack
     {
         Node *node = new Node;          //allocate memory for the node
         node-> data = data;         //assigning data into the linked list
@@ -45,7 +45,7 @@ public:
         }
     }
 
-    int  pop()   //removing data from the stack
+    int  popData()   //removing data from the stack
     {
         Node *remove = top;             //create a node which it will point top
         int data;
@@ -69,7 +69,7 @@ public:
         }
     }
 
-    void display()
+    void displayData()
     {
         Node *stack = top;
         if(IsEmpty())
@@ -97,34 +97,34 @@ int main()
     s.push(4);
     s.push(5);
 
-    s.display();
+    s.displayData();
     cout<<endl;
 
-    s.pop();
-    s.display();
+    s.popData();
+    s.displayData();
     cout<<endl;
 
-    s.pop();
-    s.display();
+    s.popData();
+    s.displayData();
     cout<<endl;
 
-    s.pop();
-    s.display();
+    s.popData();
+    s.displayData();
     cout<<endl;
 
-    s.pop();
-    s.display();
+    s.popData();
+    s.displayData();
     cout<<endl;
 
-    s.pop();
-    s.display();
+    s.popData();
+    s.displayData();
     cout<<endl;
 
-    s.pop();
-    s.display();
+    s.popData();
+    s.displayData();
 
-    s.pop();
-    s.display();
+    s.popData();
+    s.displayData();
 
 
 

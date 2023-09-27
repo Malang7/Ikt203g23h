@@ -28,7 +28,7 @@ public:
         };
     };
 
-    int pop()
+    int popData()
     {
         int data;        //a placeholder for the element we want to remove
 
