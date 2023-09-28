@@ -79,8 +79,6 @@ public:
 
     }
 
-
-
     //This function will print out the from the stack
     void displayData()
     {
@@ -107,6 +105,7 @@ public:
       if (top == nullptr)
       {
           throw runtime_error("stack underflow!");
+
       }
       else
       {
@@ -189,7 +188,7 @@ string  InfixInToThePostfix(string infix)
         s.popData();        //remove the element from the stack
     }
 
-    s.displayData();
+   // s.displayData();
 
     return postfix;
 
@@ -200,14 +199,14 @@ string  InfixInToThePostfix(string infix)
 
 int main ()
 {
-    cout << InfixInToThePostfix("a+b-");
+    cout << InfixInToThePostfix("2 x^2");
 
 
     Stack s;
 
 
     cout<<endl;
-
+/*
     s.pushData('m');
     s.pushData('c');
     s.pushData('f');
@@ -240,7 +239,7 @@ int main ()
     s.displayData();
 
 
-
+*/
 
 
 
