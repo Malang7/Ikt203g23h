@@ -70,6 +70,42 @@ I* InsertionSort(I array[], I sizeOfTheArray) //sorting the array by the inserti
 };
 
 
+
+
+template <typename B> 
+B* BubbleSortAlgorithm(B array[], int size)
+{
+    for(int i = 0; i < size-1; i++)    
+    {
+        bool flag = false; // Use bool for a more descriptive type 
+
+        // inner loop goes up to size-1-i
+        for (int j = 0; j < size-1-i; j++) 
+        {
+            // Compare current element with the next element
+            if(array[j] > array[j+1]) 
+            {
+                // Swapping the elements
+                B temp = array[j];
+                array[j] = array[j+1];
+                array[j+1] = temp; 
+                flag = true; 
+            }
+        }
+
+        // If no two elements were swapped by inner loop, then array is sorted
+        if(!flag)
+            break; 
+    }
+
+    return array; 
+}
+
+
+
+
+
+
 void Display(int *array, int size)   //display the elemenet within of the array 
 {
     cout<<"sorted list: "<<endl;
@@ -86,14 +122,9 @@ int main()
     int *array;
 
     //array= SelectionSort(myNumbers, 5);
-    array = SelectionSort(myNumbers,5);
+    array = BubbleSortAlgorithm(myNumbers,5);
 
     Display(array, 5);
-
-
-
-
-
 
     return 0;
 }
