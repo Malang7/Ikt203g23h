@@ -1,4 +1,5 @@
 #include <iostream>
+#include <vector>
 using namespace std;
 
 
@@ -101,69 +102,67 @@ B* BubbleSortAlgorithm(B array[], int size)
 }
 
 
+
 template<typename M>
-
-M* mergeSortAlgorithm(M array[], int size)
+M* mergeSortAlgorithm(vector<M>& array)
 {
-    int lenght = size;
-    if(lenght <=1)
+    int length = array.size();
+
+    // Base condition for recursion.
+    if(length <= 1)
         return 0; 
-    
-    int middel = lenght/2; 
 
-    M lowerBound[middel]; 
-    M upperBownd[size-middel]; 
-    int j = 0; 
+    int middle = length / 2;
 
+    vector<M> lowerBound;  
 
-    //this loop goiing throught each element, and it wil divide each array into the sub arrays.
-    for(int i = 0; i < size; i++)
+    // Using upperBound at the 'middle' index may give incorrect results if the length of the array is odd.
+    // For instance, when the length is 5, "middle" will be 2. In this scenario, the lowerBound vector should have a size of 2,
+    // while the upperBound vector should store the remaining 3 elements. 
+    // This "middle" calculation works when the array size is even. But, to handle both even and odd lengths,
+    // the size of upperBound must be 'length - middle'. For instance, '5 - 2 = 3', making the size of the upperBound vector 3.
+
+    vector<M> upperBound;
+
+    // This loop goes through each element and splits the vector into two vectors.
+    for(int i = 0; i < length; i++)
     {
-        if(i<middel)
+        if(i < middle)
         {
-            lowerBound[i] = array[i]; //assigning value to the lowerbownd array  
+            lowerBound.push_back(array.at(i)); // Assigns values to the lowerBound vector. 
         }
         else
         {
-            upperBownd[j] = array[i]; //assning value to the raight side of the array   
-            j++; 
-    
+            upperBound.push_back(array.at(i)); // Assigns values to the right side of the vector. 
         }
-            
     }
-    
-    cout<<"the left side of the array: ";
-    cout<<endl;
-    cout<<endl;
 
-    for(int i = 0; i<middel; i++)
+    // Display
+    cout << "The lowerBound vector: " << endl << endl;
+
+    // I prefer using the range-based for loop to print elements stored in the vector because 
+    // the vector size might not always be known.
+    // By using 'const auto& element', we access each element directly without copying them.
+    // While this doesn't matter much for small data sets, it's efficient for large ones to avoid unnecessary copies.
+    // Moreover, the 'const' ensures that the elements of the container won't be modified within the loop.
+    for(const auto& element : lowerBound)
     {
-        cout<<lowerBound[i]<<endl;
-         
+        cout << element << endl;
     }
 
-    cout<<endl;
-    cout<<endl;
-    cout<<endl;
+    cout << "The upperBound vector: " << endl << endl;
 
-    cout<<"the right side of the array: " ;
-    cout<<endl; 
-    cout<<endl;
-
-    
-    for(int i = 0; i<middel; i++)
+    for(const auto& element : upperBound)
     {
-       
-        cout<<upperBownd[i]<<endl; 
+        cout << element << endl; 
     }
 
+    // Recursively call the merge sort algorithm to continue dividing.
+    mergeSortAlgorithm(lowerBound);            
+    mergeSortAlgorithm(upperBound);
 
-    mergeSortAlgorithm(lowerBound, middel);            //we call the merge sort algorithm recursive, to devide the reminder  
-    mergeSortAlgorithm(upperBownd, middel);
-
-    return array;
+    return 0;
 }
-
 
 
 
@@ -185,9 +184,15 @@ int main()
     int *array;
 
     //array= SelectionSort(myNumbers, 5);
-    array = mergeSortAlgorithm(myNumbers, 5);
 
-    Display(array, 5);
+    vector<int> v = {15,2,30,0,25}; 
+
+
+    array = mergeSortAlgorithm(v);
+    int divide = 5/2;
+    cout<<"divide "<<divide;
+
+   // Display(array, 5);
 
 
 
