@@ -44,7 +44,6 @@ T* SelectionSort(T array[], T sizeOFarray)
 
 
 template <typename I>
-
 I* InsertionSort(I array[], I sizeOfTheArray) //sorting the array by the insertion method, assuming the first elemenet is sorted 
 {
     for (int current = 1; current<sizeOfTheArray; current++) //we assum that the first elenet is sorted, and we start with the second element.
@@ -70,9 +69,8 @@ I* InsertionSort(I array[], I sizeOfTheArray) //sorting the array by the inserti
 };
 
 
-
-
 template <typename B> 
+// Sort an array using the Bubble Sort algorithm.
 B* BubbleSortAlgorithm(B array[], int size)
 {
     for(int i = 0; i < size-1; i++)    
@@ -93,12 +91,77 @@ B* BubbleSortAlgorithm(B array[], int size)
             }
         }
 
-        // If no two elements were swapped by inner loop, then array is sorted
+        // If no elements were swapped by the inner loop, then the array is already sorted.
+        // The worst-case time complexity of Bubble Sort is O(n^2). The best-case time complexity is O(n) when the array is already sorted.
         if(!flag)
             break; 
     }
 
     return array; 
+}
+
+
+template<typename M>
+
+M* mergeSortAlgorithm(M array[], int size)
+{
+    int lenght = size;
+    if(lenght <=1)
+        return 0; 
+    
+    int middel = lenght/2; 
+
+    M lowerBound[middel]; 
+    M upperBownd[size-middel]; 
+    int j = 0; 
+
+
+    //this loop goiing throught each element, and it wil divide each array into the sub arrays.
+    for(int i = 0; i < size; i++)
+    {
+        if(i<middel)
+        {
+            lowerBound[i] = array[i]; //assigning value to the lowerbownd array  
+        }
+        else
+        {
+            upperBownd[j] = array[i]; //assning value to the raight side of the array   
+            j++; 
+    
+        }
+            
+    }
+    
+    cout<<"the left side of the array: ";
+    cout<<endl;
+    cout<<endl;
+
+    for(int i = 0; i<middel; i++)
+    {
+        cout<<lowerBound[i]<<endl;
+         
+    }
+
+    cout<<endl;
+    cout<<endl;
+    cout<<endl;
+
+    cout<<"the right side of the array: " ;
+    cout<<endl; 
+    cout<<endl;
+
+    
+    for(int i = 0; i<middel; i++)
+    {
+       
+        cout<<upperBownd[i]<<endl; 
+    }
+
+
+    mergeSortAlgorithm(lowerBound, middel);            //we call the merge sort algorithm recursive, to devide the reminder  
+    mergeSortAlgorithm(upperBownd, middel);
+
+    return array;
 }
 
 
@@ -122,9 +185,11 @@ int main()
     int *array;
 
     //array= SelectionSort(myNumbers, 5);
-    array = BubbleSortAlgorithm(myNumbers,5);
+    array = mergeSortAlgorithm(myNumbers, 5);
 
     Display(array, 5);
+
+
 
     return 0;
 }
