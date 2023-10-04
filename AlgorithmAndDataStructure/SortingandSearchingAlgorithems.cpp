@@ -164,7 +164,47 @@ M* mergeSortAlgorithm(vector<M>& array)
     return 0;
 }
 
+void merge(vector<int>& array, vector<int>& lowerBound, vector<int>& upperBound)
+{
+    int i = 0; 
+    int j = 0; 
+    int k = 0; 
 
+    // Check if the element in the lowerBound is greater than the element in the upperBound.
+    // The smaller element will be appended to the new array.
+    while(i < lowerBound.size() && j < upperBound.size())
+    {
+        if(lowerBound[i] > upperBound[j])  // Find the smaller element between the two arrays.
+        {   
+            // Append the smaller element to the new array.
+            array[k] = upperBound[j];
+            j++;  // Move to the next index in the upperBound.
+            k++;  // Move to the next empty index in the array.
+        }
+        else
+        {
+            array[k] = lowerBound[i];  // If the element in lowerBound is smaller, append it to the array.
+            i++; // Move to the next index in the lowerBound.
+            k++; 
+        }
+    }
+
+    // Copy the remaining elements from lowerBound to the array.
+    while(i < lowerBound.size())
+    {
+        array[k] = lowerBound[i]; 
+        i++;
+        k++;  
+    }
+
+    // Copy the remaining elements from upperBound to the array.
+    while(j < upperBound.size())
+    {
+        array[k] = upperBound[j];
+        j++;
+        k++;
+    }
+}
 
 
 
