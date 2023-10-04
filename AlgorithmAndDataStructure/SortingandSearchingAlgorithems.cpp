@@ -102,6 +102,53 @@ B* BubbleSortAlgorithm(B array[], int size)
 }
 
 
+template<typename M>
+void merge(vector<M>& array, vector<M>& lowerBound, vector<M>& upperBound)
+    {
+        int i = 0; 
+        int j = 0; 
+        int k = 0; 
+
+        // Check if the element in the lowerBound is greater than the element in the upperBound.
+        // The smaller element will be appended to the new array.
+        while(i < lowerBound.size() && j < upperBound.size())
+        {
+            if(lowerBound[i] > upperBound[j])  // Find the smaller element between the two arrays.
+            {   
+                // Append the smaller element to the new array.
+                array[k] = upperBound[j];
+                j++;  // Move to the next index in the upperBound.
+                k++;  // Move to the next empty index in the array.
+            }
+            else
+            {
+                array[k] = lowerBound[i];  // If the element in lowerBound is smaller, append it to the array.
+                i++; // Move to the next index in the lowerBound.
+                k++; 
+            }
+        }
+
+        // Copy the remaining elements from lowerBound to the array.
+        while(i < lowerBound.size())
+        {
+            array[k] = lowerBound[i]; 
+            i++;
+            k++;  
+        }
+
+        // Copy the remaining elements from upperBound to the array.
+        while(j < upperBound.size())
+        {
+            array[k] = upperBound[j];
+            j++;
+            k++;
+        } 
+    }
+
+    
+
+
+
 
 template<typename M>
 M* mergeSortAlgorithm(vector<M>& array)
@@ -160,51 +207,20 @@ M* mergeSortAlgorithm(vector<M>& array)
     // Recursively call the merge sort algorithm to continue dividing.
     mergeSortAlgorithm(lowerBound);            
     mergeSortAlgorithm(upperBound);
+    merge(array, lowerBound, upperBound);  
 
-    return 0;
+    cout<<"the sorted element"; 
+    for(const auto& elemenet : array)
+    {
+        cout<<elemenet<<endl; 
+    }
+    
+
+        return 0;
 }
 
-void merge(vector<int>& array, vector<int>& lowerBound, vector<int>& upperBound)
-{
-    int i = 0; 
-    int j = 0; 
-    int k = 0; 
 
-    // Check if the element in the lowerBound is greater than the element in the upperBound.
-    // The smaller element will be appended to the new array.
-    while(i < lowerBound.size() && j < upperBound.size())
-    {
-        if(lowerBound[i] > upperBound[j])  // Find the smaller element between the two arrays.
-        {   
-            // Append the smaller element to the new array.
-            array[k] = upperBound[j];
-            j++;  // Move to the next index in the upperBound.
-            k++;  // Move to the next empty index in the array.
-        }
-        else
-        {
-            array[k] = lowerBound[i];  // If the element in lowerBound is smaller, append it to the array.
-            i++; // Move to the next index in the lowerBound.
-            k++; 
-        }
-    }
 
-    // Copy the remaining elements from lowerBound to the array.
-    while(i < lowerBound.size())
-    {
-        array[k] = lowerBound[i]; 
-        i++;
-        k++;  
-    }
-
-    // Copy the remaining elements from upperBound to the array.
-    while(j < upperBound.size())
-    {
-        array[k] = upperBound[j];
-        j++;
-        k++;
-    }
-}
 
 
 
@@ -230,7 +246,6 @@ int main()
 
     array = mergeSortAlgorithm(v);
     int divide = 5/2;
-    cout<<"divide "<<divide;
 
    // Display(array, 5);
 
