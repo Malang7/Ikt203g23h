@@ -221,44 +221,59 @@ M* mergeSortAlgorithm(vector<M>& array)
 
 
 
+
 void quickSortAlgorithm(vector<int>& array, int start, int end)
 {
-    if(start>=end)
+    if(start>=end)   //base case, both the start and the end be updatet over time, values change when the function calls recursively.
     {
         return; 
     } 
     //cout<<"the first element is:"<<array[0];
-    int key = array[start];
-    int  left= start +1 ; 
-    int raight = end;
+    int key = array[start]; // Assum the pivot is the first element in the array
+    int  left= start +1 ;   // The left side should start with the second elemenet in the array and incerease by one 
+    int raight = end;       // The raghit side should start with last elemenet and decremenets by one
+    
 
+
+    // This loop conitinues until the lefet side crosses the raghit side 
+     while(left<=raight)
+    {
+        if(array[left]<=key)   // Check if the left side element is smaller or equl to the key
+        {
+            left++;     //if the condition is true, than it will increase the left by one
+        }
+        else if (array[raight]>key)   //If the above condition is false, check if the last elemenet is greter than the pivot 
+        {
+            raight--;  //If the condition is true, then decremenet  right by one
+        }
+        else           //if the boths conditions are false, then its the last senario, where the left side is greter the raghit side
+                        //here we to swape these two elemenets
+        {
+            int temp = array[left];      //store the left element in the temp variable
+            array[left] =  array[raight]; //assing the right element to the left side
+            array[raight] = temp;  //assing the temp element to the right
+        } 
+    }
 
 
     
+/*
+-
+- Call the quickSortAlgorithm recursively
+- Once for the left side, starting with the 'start' point and ending just before the 'right' element
+- The other call is for the right side of the array, starting after the 'right' element
+*/
 
-    while(left<=raight)
-    {
-        if(array[left]<=key)
-        {
-            left++;
-        }
-        else if (array[raight]>key)
-        {
-            raight--; 
-        }
-        else
-        {
-            int temp = array[left];
-            array[left] =  array[raight];
-            array[raight] = temp;  
-        }
-    }
+    //after the loop, swape  the pivot and raight element which it has crossed the left side,
+    //this ensure that, in subsequent recursive calls, we dont need to iterate throught the whole array and only sort the remaning elements
 
     int temp = array[start];  
     array[start] = array[raight];
     array[raight] = temp;
-    quickSortAlgorithm(array, start, raight-1); 
-    quickSortAlgorithm(array, raight+1, end);
+
+    //calling the quicksortAlgoritm recursivly
+    quickSortAlgorithm(array, start, raight-1); // for left side,starting with the start point and  ending just before the right element
+    quickSortAlgorithm(array, raight+1, end); // for the right side, starting after the right +1 and ending with end
 
 }
 
@@ -271,7 +286,6 @@ void Display(int *array, int size)   //display the elemenet within of the array
     for (int i = 0; i <size; i++)
     {
         cout<<array[i]<<endl;
-
     }
 }
 
@@ -285,7 +299,6 @@ int main()
 
     vector<int> v = {15,2,30,0,25}; 
 
-
     //array = mergeSortAlgorithm(v);
     quickSortAlgorithm(v, 0, v.size()-1);
 
@@ -295,11 +308,7 @@ int main()
         cout<<v[i]<<endl;
     }
 
-
    // Display(array, 5);
-
-
-
     return 0;
 }
 
