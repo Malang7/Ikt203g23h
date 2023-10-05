@@ -221,6 +221,47 @@ M* mergeSortAlgorithm(vector<M>& array)
 
 
 
+void quickSortAlgorithm(vector<int>& array, int start, int end)
+{
+    if(start>=end)
+    {
+        return; 
+    } 
+    //cout<<"the first element is:"<<array[0];
+    int key = array[start];
+    int  left= start +1 ; 
+    int raight = end;
+
+
+
+    
+
+    while(left<=raight)
+    {
+        if(array[left]<=key)
+        {
+            left++;
+        }
+        else if (array[raight]>key)
+        {
+            raight--; 
+        }
+        else
+        {
+            int temp = array[left];
+            array[left] =  array[raight];
+            array[raight] = temp;  
+        }
+    }
+
+    int temp = array[start];  
+    array[start] = array[raight];
+    array[raight] = temp;
+    quickSortAlgorithm(array, start, raight-1); 
+    quickSortAlgorithm(array, raight+1, end);
+
+}
+
 
 
 
@@ -234,6 +275,7 @@ void Display(int *array, int size)   //display the elemenet within of the array
     }
 }
 
+
 int main()
 {
     int myNumbers[5] = {15, 2, 30, 0, 25};
@@ -244,8 +286,15 @@ int main()
     vector<int> v = {15,2,30,0,25}; 
 
 
-    array = mergeSortAlgorithm(v);
-    int divide = 5/2;
+    //array = mergeSortAlgorithm(v);
+    quickSortAlgorithm(v, 0, v.size()-1);
+
+
+    for(int i = 0; i<v.size(); i++)
+    {
+        cout<<v[i]<<endl;
+    }
+
 
    // Display(array, 5);
 
