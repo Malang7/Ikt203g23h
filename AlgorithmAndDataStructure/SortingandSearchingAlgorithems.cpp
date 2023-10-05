@@ -4,6 +4,13 @@ using namespace std;
 
 
 
+void swapeToElements(int& element1, int& element2)
+{
+    int temp = element1;
+    element1 = element2; 
+    element2 = temp; 
+}
+
 template <typename T>
 
 //sort the array based on the selection sort, find the minmum elemnet, and place it into the sorted array 
@@ -146,10 +153,6 @@ void merge(vector<M>& array, vector<M>& lowerBound, vector<M>& upperBound)
     }
 
     
-
-
-
-
 template<typename M>
 M* mergeSortAlgorithm(vector<M>& array)
 {
@@ -255,15 +258,6 @@ void quickSortAlgorithm(vector<int>& array, int start, int end)
         } 
     }
 
-
-    
-/*
--
-- Call the quickSortAlgorithm recursively
-- Once for the left side, starting with the 'start' point and ending just before the 'right' element
-- The other call is for the right side of the array, starting after the 'right' element
-*/
-
     //after the loop, swape  the pivot and raight element which it has crossed the left side,
     //this ensure that, in subsequent recursive calls, we dont need to iterate throught the whole array and only sort the remaning elements
 
@@ -271,11 +265,60 @@ void quickSortAlgorithm(vector<int>& array, int start, int end)
     array[start] = array[raight];
     array[raight] = temp;
 
+
     //calling the quicksortAlgoritm recursivly
     quickSortAlgorithm(array, start, raight-1); // for left side,starting with the start point and  ending just before the right element
     quickSortAlgorithm(array, raight+1, end); // for the right side, starting after the right +1 and ending with end
 
 }
+
+struct Node
+{
+    int parenet;
+    Node *child1 = nullptr; 
+    Node *child2 = nullptr; 
+    
+};
+
+
+class HeapSort
+{
+    private:
+    Node *headOfThree; 
+    vector<int>unsortedArray; 
+    int lenght; 
+
+    public:
+    //declare constructure, it take a vector as arguement, and then it will assing value to the head of there, and unsorted array
+    HeapSort(vector<int>& array) 
+    {
+        headOfThree = nullptr;
+        unsortedArray = array; 
+        lenght = unsortedArray.size();
+    }
+
+    void insertElementIntoThree()
+    {
+        int i = 0; 
+        Node* three = new Node;
+        if(lenght == 0) //check if there is one element in the array
+        {
+            three->parenet = unsortedArray[i];
+            return; 
+        }
+        int j; 
+        int k; 
+        while (i<lenght)
+        {
+            j +=
+            three->parenet = unsortedArray[i]; 
+            three->child1 = unsortedArray[i+1]; 
+
+        }
+    }
+
+}
+
 
 
 
