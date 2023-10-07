@@ -117,8 +117,6 @@ public:
 
 
 
-
-
 int priority(char c) //This function determine the priority of each character and returns its value
 {
     if (c == '(' )   //( have the lowest priority

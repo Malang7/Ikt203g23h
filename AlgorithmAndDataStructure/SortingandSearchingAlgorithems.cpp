@@ -275,8 +275,8 @@ void quickSortAlgorithm(vector<int>& array, int start, int end)
 struct Node
 {
     int parenet;
-    Node *child1 = nullptr; 
-    Node *child2 = nullptr; 
+    Node *child1 ; 
+    Node *child2; 
     
 };
 
@@ -303,16 +303,31 @@ class HeapSort
         Node* three = new Node;
         if(lenght == 0) //check if there is one element in the array
         {
-            three->parenet = unsortedArray[i];
             return; 
         }
         int j; 
         int k; 
         while (i<lenght)
         {
-            j +=
             three->parenet = unsortedArray[i]; 
-            three->child1 = unsortedArray[i+1]; 
+            if(headOfThree == nullptr)
+            {
+                three -> child1 = nullptr; 
+                three -> child2 = nullptr; 
+                headOfThree = three;
+            }
+            else
+            {
+                headOfThree->child1 = three; 
+                if(headOfThree->parenet<three->parenet)
+                {
+                    int temp = headOfThree->parenet; 
+                    int 
+
+                }
+
+
+            }
 
         }
     }
