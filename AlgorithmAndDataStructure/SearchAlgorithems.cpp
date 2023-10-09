@@ -2,6 +2,38 @@
 #include <vector>
 using namespace std;
 
+
+
+void linerSerach(vector<int>&array,int start, int end, vector<int>&indicate, int data)
+{
+    if(start>end) //base case 
+    {
+        return; 
+    }
+
+    if(array[start] == data )
+    {
+        //if we found the data in the array, it should push the data into the indicate array,  
+        indicate.push_back(start);
+        linerSerach(array, start+1, end, indicate, data); //call the liner function recursivly, and starteed with the next index, to check if there is a another equal data in the array
+    }
+    else
+    {
+        linerSerach(array, start+1, end, indicate, data); 
+    }
+}
+
+vector<int>linerSerach(vector<int>&array, int data)
+{
+    vector<int>indicate; 
+    linerSerach(array,0,array.size()-1, indicate, data);
+    return indicate; 
+}
+
+
+
+
+
 // Recursive helper function for binary search.
 void BinarySearch(vector<int>& array, int key, int left, int right, vector<int>& indicate) {
     int middle = (left + right) / 2;
@@ -39,7 +71,13 @@ vector<int> BinarySearch(vector<int>& array, int key) {
 
 int main() {
     vector<int> array = {1, 2, 3, 4, 5, 6, 6, 7, 8};
-    vector<int> indicate = BinarySearch(array, 6);
+    vector<int> indicate = linerSerach(array, 6);
+
+
+    if(indicate.empty())
+    {
+        cout<<"no data in array"; 
+    }
 
     for(auto index: indicate) {
         cout << index << " ";
