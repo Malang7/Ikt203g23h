@@ -32,8 +32,6 @@ Constraints:
 */
 
 
-
-
 class Solution {
 public:
 
@@ -90,9 +88,6 @@ public:
         }
     }
 
-
-
-
     vector<int> twoSum(vector<int>& nums, int target)
     {
 
@@ -125,13 +120,13 @@ public:
     }
 };
 
-
+//next find other solution for this assignement 
 
 int main()
 {
    Solution s1; 
 
-   vector<int> array = {}; 
+   vector<int> array = {3,3}; 
    int target; 
    cout<<"please enter the target: "; 
    cin>>target; 

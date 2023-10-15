@@ -4,41 +4,56 @@ using namespace std;
 
 
 
-void linerSerach(vector<int>&array,int start, int end, vector<int>&indicate, int data)
+// Recursive function to search for a given data in the vector and store its indices where found.
+void linerSerach(vector<int>& array, int start, int end, vector<int>& indicate, int data)
 {
-    if(start>end) //base case 
+    // Base case: If the starting index is greater than the ending index, 
+    // then the search in the current sub-array is over.
+    if(start > end) 
     {
         return; 
     }
 
+    // If the current element matches the desired data
     if(array[start] == data )
     {
-        //if we found the data in the array, it should push the data into the indicate array,  
+        // Push the current index into the indicate vector 
+        // to keep track of where the data was found.
         indicate.push_back(start);
-        linerSerach(array, start+1, end, indicate, data); //call the liner function recursivly, and starteed with the next index, to check if there is a another equal data in the array
+
+        // Move to the next index and continue the search 
+        // to find any other occurrences of the data.
+        linerSerach(array, start+1, end, indicate, data);
     }
     else
     {
+        // If the current element doesn't match the data, 
+        // move to the next index and continue the search.
         linerSerach(array, start+1, end, indicate, data); 
     }
 }
 
-vector<int>linerSerach(vector<int>&array, int data)
+// Function that initializes and triggers the recursive search.
+// It returns a vector containing indices where the data is found.
+vector<int> linerSerach(vector<int>& array, int data)
 {
-    vector<int>indicate; 
-    linerSerach(array,0,array.size()-1, indicate, data);
+    // Vector to store the indices where the data is found.
+    vector<int> indicate; 
+
+    // Start the search from the beginning (0) to the end (array.size() - 1).
+    linerSerach(array, 0, array.size()-1, indicate, data);
+
+    // Return the vector with the indices.
     return indicate; 
 }
 
 
 
 
-
-// Recursive helper function for binary search.
 void BinarySearch(vector<int>& array, int key, int left, int right, vector<int>& indicate) {
     int middle = (left + right) / 2;
 
-    // If left crosses right, that means the data is not present in the array.
+    // base case: If left crosses right, that means the data is not present in the array.
     if(left > right) {
         return;
     }

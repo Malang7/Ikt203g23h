@@ -49,11 +49,11 @@ cmake_ninja_workdir = C$:/Users/Matin/ikt203/AlgorithmAndDataStructure/cmake-bui
 
 build cmake_object_order_depends_target_AlgorithmAndDataStructure: phony || CMakeFiles/AlgorithmAndDataStructure.dir
 
-build CMakeFiles/AlgorithmAndDataStructure.dir/SortingandSearchingAlgorithems.cpp.obj: CXX_COMPILER__AlgorithmAndDataStructure_unscanned_Debug C$:/Users/Matin/ikt203/AlgorithmAndDataStructure/SortingandSearchingAlgorithems.cpp || cmake_object_order_depends_target_AlgorithmAndDataStructure
-  DEP_FILE = CMakeFiles\AlgorithmAndDataStructure.dir\SortingandSearchingAlgorithems.cpp.obj.d
+build CMakeFiles/AlgorithmAndDataStructure.dir/leetCode/twoSum.cpp.obj: CXX_COMPILER__AlgorithmAndDataStructure_unscanned_Debug C$:/Users/Matin/ikt203/AlgorithmAndDataStructure/leetCode/twoSum.cpp || cmake_object_order_depends_target_AlgorithmAndDataStructure
+  DEP_FILE = CMakeFiles\AlgorithmAndDataStructure.dir\leetCode\twoSum.cpp.obj.d
   FLAGS = -g -std=gnu++17 -fdiagnostics-color=always
   OBJECT_DIR = CMakeFiles\AlgorithmAndDataStructure.dir
-  OBJECT_FILE_DIR = CMakeFiles\AlgorithmAndDataStructure.dir
+  OBJECT_FILE_DIR = CMakeFiles\AlgorithmAndDataStructure.dir\leetCode
 
 
 # =============================================================================
@@ -63,7 +63,7 @@ build CMakeFiles/AlgorithmAndDataStructure.dir/SortingandSearchingAlgorithems.cp
 #############################################
 # Link the executable AlgorithmAndDataStructure.exe
 
-build AlgorithmAndDataStructure.exe: CXX_EXECUTABLE_LINKER__AlgorithmAndDataStructure_Debug CMakeFiles/AlgorithmAndDataStructure.dir/SortingandSearchingAlgorithems.cpp.obj
+build AlgorithmAndDataStructure.exe: CXX_EXECUTABLE_LINKER__AlgorithmAndDataStructure_Debug CMakeFiles/AlgorithmAndDataStructure.dir/leetCode/twoSum.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\AlgorithmAndDataStructure.dir
