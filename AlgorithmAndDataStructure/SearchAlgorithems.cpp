@@ -1,7 +1,8 @@
 #include <iostream>
 #include <vector>
-using namespace std;
 
+using namespace std;
+using namespace std::chrono;
 
 
 // Recursive function to search for a given data in the vector and store its indices where found.
@@ -83,6 +84,10 @@ vector<int> BinarySearch(vector<int>& array, int key) {
     BinarySearch(array, key, 0, array.size() - 1, indicate);
     return indicate;
 }
+
+
+
+
 
 int main() {
     vector<int> array = {1, 2, 3, 4, 5, 6, 6, 7, 8};

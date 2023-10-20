@@ -3,4 +3,4 @@ project(AlgorithmAndDataStructure)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(AlgorithmAndDataStructure leetCode/twoSum.cpp)
+add_executable(AlgorithmAndDataStructure Assignments/tempCodeRunnerFile.cpp)

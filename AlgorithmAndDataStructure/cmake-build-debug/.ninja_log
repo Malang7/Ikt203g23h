@@ -1,18 +1,13 @@
 # ninja log v5
-2	400	7169507854754687	CMakeFiles/AlgorithmAndDataStructure.dir/main.cpp.obj	4c15a25ef1629d28
 21	1044	7174375920939228	CMakeFiles/AlgorithmAndDataStructure.dir/Polynomial_Equation_Solver_with_Infix_to_Postfix_Conversion.cpp.obj	85134e100935dfd7
-16	539	7173845622647664	CMakeFiles/AlgorithmAndDataStructure.dir/StackUsingArray.cpp.obj	7d80c2c2dcba09e0
-503	722	7178162220319685	AlgorithmAndDataStructure.exe	bbdc2a939ab78d3a
+2	400	7169507854754687	CMakeFiles/AlgorithmAndDataStructure.dir/main.cpp.obj	4c15a25ef1629d28
 0	652	7170181061988850	CMakeFiles/AlgorithmAndDataStructure.dir/QueueInArray.cpp.obj	75f0fd6efb2d936
-2	290	7189709475041681	build.ninja	5ca8656bde50fa31
-12	1042	7174375920929214	CMakeFiles/AlgorithmAndDataStructure.dir/StackUsingSingelLinkedList.cpp.obj	e4e8f58a69e63106
+16	539	7173845622647664	CMakeFiles/AlgorithmAndDataStructure.dir/StackUsingArray.cpp.obj	7d80c2c2dcba09e0
+897	1209	7189713493106569	AlgorithmAndDataStructure.exe	a3c633c876c9961b
+14	615	7194727011710670	build.ninja	5ca8656bde50fa31
 3	354	7170314996140262	CMakeFiles/AlgorithmAndDataStructure.dir/QueueInLinkedList.cpp.obj	da1979723917d81d
+12	1042	7174375920929214	CMakeFiles/AlgorithmAndDataStructure.dir/StackUsingSingelLinkedList.cpp.obj	e4e8f58a69e63106
 8	795	7175528250355371	CMakeFiles/AlgorithmAndDataStructure.dir/PolynomialEquationSolverwithInfixtoPostfixConversion.cpp.obj	ee53e74f013b4aff
 4	503	7178162218169184	CMakeFiles/AlgorithmAndDataStructure.dir/SortingandSearchingAlgorithems.cpp.obj	5c9c52a46c07aeff
-14	615	7189709475041681	build.ninja	5ca8656bde50fa31
-0	1346	7189709489907580	CMakeFiles/AlgorithmAndDataStructure.dir/leetCode/twoSum.cpp.obj	e56d2d1059509d9b
-1348	1843	7189709494837999	AlgorithmAndDataStructure.exe	a3c633c876c9961b
-6	998	7189710362057819	CMakeFiles/AlgorithmAndDataStructure.dir/leetCode/twoSum.cpp.obj	e56d2d1059509d9b
-999	1294	7189710364926642	AlgorithmAndDataStructure.exe	a3c633c876c9961b
 6	895	7189713490004400	CMakeFiles/AlgorithmAndDataStructure.dir/leetCode/twoSum.cpp.obj	e56d2d1059509d9b
-897	1209	7189713493106569	AlgorithmAndDataStructure.exe	a3c633c876c9961b
+1	229	7194727011710670	build.ninja	5ca8656bde50fa31
