@@ -4,10 +4,13 @@
 using namespace std;
 
 template<typename T>
-int interpolationSearchAlgorithm(vector<T> &array, T key)
+vector<T> interpolationSearchAlgorithm(vector<T> &array, T key)
 {
+
+
     int start = 0;
     int end = array.size() - 1;
+    vector<T> result; 
  
 
     //this loop should continu untill the start is less then the end, and the key is greter or equl to the start and less than end element in the array 
@@ -19,9 +22,24 @@ int interpolationSearchAlgorithm(vector<T> &array, T key)
 
         if (array[position] == key)
         {
-            return position;   
-        
-                  
+            result.push_back(position);
+            end = position -1; 
+
+            // Check if in the remaining part of the array, there are again some values which are equal to the key.
+           
+            while(end>= 0 && array[end] == key)
+            {
+                result.push_back(end);
+                end --; 
+            }
+
+            start = position+1;
+            while(start<array.size() && array[start]==key)
+            {
+                result.push_back(start); 
+                start ++; 
+            }
+         //going out of the loop, when all numbers is found 
         }
         if (array[position] < key)  //if the finds value is greter than the target it will incres the start by one
         {
@@ -32,8 +50,11 @@ int interpolationSearchAlgorithm(vector<T> &array, T key)
             end = position - 1;
         }
     }
-    return -1;
+    return result;
+
+
 }
+
 
 
 
@@ -41,16 +62,18 @@ int main()
 {
     vector<int> array = {1, 2, 3, 4, 5, 6, 6, 8, 9};
 
-    int result = interpolationSearchAlgorithm(array, 5);
+    vector<int> result = interpolationSearchAlgorithm(array, 6);
 
-    if(result == -1)
+    if(result.empty())
     {
         cout<<"target not found"; 
     }
     else 
     {
-        cout<<"the target found in index: "<<result; 
+        for(auto &index : result)
+        cout<<"the target found in index: "<<index<<endl; 
     }
+    
 
     return 0;
 }
