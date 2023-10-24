@@ -10,13 +10,10 @@ vector<T> interpolationSearchAlgorithm(vector<T> &array, T key)
 
     int start = 0;
     int end = array.size() - 1;
-    vector<T> result; 
- 
-
+    vector<int> result; 
     //this loop should continu untill the start is less then the end, and the key is greter or equl to the start and less than end element in the array 
     while (start <= end && key >= array[start] && key <= array[end])
     {
-
         //calculating the position 
         int position = start + (((double)(end - start) / (array[end] - array[start])) * (key - array[start]));
 
@@ -45,7 +42,7 @@ vector<T> interpolationSearchAlgorithm(vector<T> &array, T key)
         {
             start = position + 1;
         }
-        else                        //otherwise it will decremenet the end by one
+        else   //otherwise it will decremenet the end by one
         {
             end = position - 1;
         }
@@ -53,6 +50,20 @@ vector<T> interpolationSearchAlgorithm(vector<T> &array, T key)
     return result;
 
 
+}
+
+template<typename T>
+void display(vector<T>& result)
+{
+    if(result.empty())
+    {
+        cout<<"target not found"; 
+    }
+    else 
+    {
+        for(auto &index : result)
+        cout<<"the target found in index: "<<index<<endl; 
+    }
 }
 
 
@@ -64,16 +75,14 @@ int main()
 
     vector<int> result = interpolationSearchAlgorithm(array, 6);
 
-    if(result.empty())
-    {
-        cout<<"target not found"; 
-    }
-    else 
-    {
-        for(auto &index : result)
-        cout<<"the target found in index: "<<index<<endl; 
-    }
-    
+    display(result); 
+
+    vector<string> ar = {"a", "b", "c", "d"};
+    vector<int> e = interpolationSearchAlgorithm(ar, "b");
+
+
+
+
 
     return 0;
 }
