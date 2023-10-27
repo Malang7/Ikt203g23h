@@ -1,6 +1,7 @@
 #include <iostream>
 #include <string>
 #include <unordered_set>
+#include <vector> 
 
 using namespace std;
 
@@ -37,14 +38,17 @@ public:
 
         return lengthOfLongest;
     }
+
 };
 
 int main()
 {
     solutions s1;
     string test = "abbbcc";
-    int length = s1.lengthOfLongestSubstring(test);
+    int length = s1.lengthOfLongestSubstring2(test);
     cout << "The length of the longest substring is: " << length << endl;
+
+
 
     return 0;
 }

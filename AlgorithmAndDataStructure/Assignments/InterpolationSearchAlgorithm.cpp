@@ -77,8 +77,6 @@ int main()
 
     display(result); 
 
-    vector<string> ar = {"a", "b", "c", "d"};
-    vector<int> e = interpolationSearchAlgorithm(ar, "b");
 
 
 
