@@ -3,4 +3,5 @@ project(AlgorithmAndDataStructure)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(AlgorithmAndDataStructure Assignments/trees.cpp)
+add_executable(AlgorithmAndDataStructure max_heap.cpp
+        Assignments/PriorityQueueUsingHeapDataStructure.cpp)
