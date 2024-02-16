@@ -67,17 +67,11 @@ public:
         }
     }
 
-
-
-
     void InsertionOperation(vector<task>& array, task data)
     {
         array.push_back(data);
         linkeTheNode(array, array.size()-1);
     }
-
-
-
 
     void hypefy(vector<task>& array, int i)
     {
@@ -116,25 +110,23 @@ public:
     }
 
 
-    vector<task> sorting(vector<task>&array)
+    task execute(vector<task>&array)
     {
-        vector<task> result;
-        int i = array.size();
-        while(i>=0)
+        if(!array.empty())
         {
-            if(!array.empty())
-            {
-                hypefy(array, 0);
-                result.push_back(array.front());
-                swap(array.front(), array.back());
-                array.pop_back();
-                i--;
-            } else
-            {
-                break;
-            }
+            task test1 =  array[0];
+
+            array[0] = array.back();
+            array.pop_back();
+            hypefy(array, 0);
+            return test1;
         }
-        return result;
+        else
+        {
+            return {"", 0};
+        }
+
+
     }
 
 
@@ -165,18 +157,6 @@ public:
 
 
 
-    }
-
-    void GethighestPriority(vector<task> &array) {
-        if (!array.empty()) {
-            cout<<"the element with the name: "<<array[0].taskName<<"and priority: "<<array[0].priority;
-            array.erase(array.begin());
-            //array.pop_back();
-        } else {
-            {
-                cout<<"nothing to remove.";
-            }
-        }
     }
 
 
@@ -244,8 +224,11 @@ void App(vector<task>& result)
         }
         else if (input == 2)
         {
-            vector<task> sortResult = p.sorting(result);
-            p.GethighestPriority(sortResult);
+            task test1 = p.execute(result);
+            if (test1.priority != 0 && test1.taskName !="")
+            {
+                cout<<"task name "<< test1.taskName<< " task priority: "<< test1.priority;
+            }
 
 
         } else if (input == 4)
@@ -253,16 +236,9 @@ void App(vector<task>& result)
             int n;
             cout<<"please enter 'n' tasks to display tasks: ";
             cin>>n;
-            vector<task> sortResult = p.sorting(result);
-            p.Display(sortResult,n);
 
         }
-
-
-
-
     }
-
 
 }
 
